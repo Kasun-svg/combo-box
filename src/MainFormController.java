@@ -1,25 +1,20 @@
-import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
+
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 
 public class MainFormController {
 
 
-    public TextField txtName;
-    public TextField txtAnswer;
-    public Button btnPrint;
-    public TextField txtPrintName;
-    public TextField txtNameR;
-    public TextField txtPrintNameR;
+    public TextField txtEmail;
+    public TextField txtResult;
 
-    public void onKeyPressedAcion(KeyEvent keyEvent) {
-        String value = txtName.getText();
-        txtPrintName.setText(value);
-    }
+    public void initialize() {
+        txtEmail.textProperty().addListener((observable, oldValue, newValue) ->{
+                    System.out.println("new value : " + newValue );
+                    System.out.println("old value : " + oldValue);
+txtResult.setText(newValue);
+                }
+        );
 
-    public void onKeyReleased(KeyEvent keyEvent) {
-        String value = txtNameR.getText();
-        txtPrintNameR.setText(value);
+
     }
 }
