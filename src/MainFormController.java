@@ -1,20 +1,29 @@
 
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainFormController {
 
 
-    public TextField txtEmail;
-    public TextField txtResult;
+    public ComboBox<String> cmbLanguage;
+
+    ArrayList<String> myLanguages = new ArrayList<>(
+            Arrays.asList("java", "PHP", "Koltin", "Ruby")
+    );
 
     public void initialize() {
-        txtEmail.textProperty().addListener((observable, oldValue, newValue) ->{
-                    System.out.println("new value : " + newValue );
-                    System.out.println("old value : " + oldValue);
-txtResult.setText(newValue);
-                }
-        );
-
+        for (String name : myLanguages) {
+            cmbLanguage.getItems().add(name);
+        }
 
     }
+
+
 }
+
+
+
+
